@@ -60,10 +60,11 @@
   }
 
   &__backdrop {
-    height: 420px;
+    height: 404px;
     max-width: 361px;
     width: 100%;
     position: absolute;
+    top: 16px;
     z-index: 0;
     transition: all 0.3s ease-in-out;
     transform: translate(0px, 0px);
@@ -76,27 +77,31 @@
   }
   50% {
     transform: translate(-13px, 0px);
+    height: 404px;
   }
   100% {
-    transform: translate(-13px, 16px);
+    transform: translate(-13px, 0px);
+    height: 420px;
   }
 }
 
 @keyframes backdropReverseAnimation {
   0% {
-    transform: translate(-13px, 16px);
+    transform: translate(-13px, 0px);
+    height: 420px;
   }
   50% {
-    transform: translate(0px, 16px);
+    transform: translate(0px, 0px);
+    height: 420px;
   }
   100% {
     transform: translate(0px, 0px);
+    height: 404px;
   }
 }
 
 .post__wrapper:hover .post__backdrop {
   animation: backdropAnimation 0.8s ease-in-out forwards;
-  // animation-delay: 0.1s;
 }
 
 .post__wrapper:not(:hover) .post__backdrop {

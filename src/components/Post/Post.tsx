@@ -36,7 +36,7 @@ const Post = ({ post }: PostProps) => {
       </div>
       <div
         className="post__info-wrapper"
-        style={{ borderTop: `4px solid ${getColor(category)}` }}
+        // style={{ borderTop: `4px solid ${getColor(category)}` }}
       >
         <h3 className="post__title">{title}</h3>
         <div className="post__footer">
