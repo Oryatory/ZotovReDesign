@@ -107,10 +107,11 @@
 }
 
 .post__wrapper:hover .post__backdrop {
-  animation: backdropAnimation 0.8s ease-in-out forwards;
+  animation: backdropAnimation 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
 
 .post__wrapper:not(:hover) .post__backdrop {
-  animation: backdropReverseAnimation 0.5s ease-in-out forwards;
+  animation: backdropReverseAnimation 0.5s
+    cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
   // animation-delay: 0.2s;
 }
