@@ -1,0 +1,104 @@
+.post {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    max-width: 361px;
+    position: relative;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    & > * {
+      z-index: 5;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    backdrop-filter: blur(15px);
+    padding: 4px 17px;
+    right: 13px;
+    top: 16px;
+    z-index: 6;
+    font-size: 15px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &__img-wrapper {
+    height: 249px;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__info-wrapper {
+    display: flex;
+    padding: 21px;
+    background-color: #f9f9f9;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__marker {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+  }
+
+  &__backdrop {
+    height: 420px;
+    width: 361px;
+    position: absolute;
+    z-index: 0;
+    transition: all 0.3s ease-in-out;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes backdropAnimation {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-13px, 0px);
+  }
+  100% {
+    transform: translate(-13px, 16px);
+  }
+}
+
+@keyframes backdropReverseAnimation {
+  0% {
+    transform: translate(-13px, 16px);
+  }
+  50% {
+    transform: translate(0px, 16px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.post__wrapper:hover .post__backdrop {
+  animation: backdropAnimation 0.8s ease-in-out forwards;
+  // animation-delay: 0.1s;
+}
+
+.post__wrapper:not(:hover) .post__backdrop {
+  animation: backdropReverseAnimation 0.5s ease-in-out forwards;
+  // animation-delay: 0.2s;
+}
