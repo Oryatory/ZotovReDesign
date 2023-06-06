@@ -61,7 +61,8 @@
 
   &__backdrop {
     height: 420px;
-    width: 361px;
+    max-width: 361px;
+    width: 100%;
     position: absolute;
     z-index: 0;
     transition: all 0.3s ease-in-out;

@@ -4,5 +4,5 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  margin: 5rem;
+  margin: clamp(1rem, 5vw, 5rem);
 }
