@@ -34,7 +34,10 @@ const Post = ({ post }: PostProps) => {
       <div className="post__img-wrapper">
         <img src={img} alt="" />
       </div>
-      <div className="post__info-wrapper">
+      <div
+        className="post__info-wrapper"
+        style={{ borderTop: `4px solid ${getColor(category)}` }}
+      >
         <h3 className="post__title">{title}</h3>
         <div className="post__footer">
           <span className="post__date">{date}</span>
