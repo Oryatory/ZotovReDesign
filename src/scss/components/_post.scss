@@ -113,5 +113,4 @@
 .post__wrapper:not(:hover) .post__backdrop {
   animation: backdropReverseAnimation 0.5s
     cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
-  // animation-delay: 0.2s;
 }

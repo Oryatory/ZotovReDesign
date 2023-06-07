@@ -1,0 +1,25 @@
+.slide {
+  &__image {
+    min-width: 46vw !important;
+    transition: all 0.6s;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.swiper__container {
+  height: 300px;
+}
+
+.swiper-slide {
+  transition: all 0.6s;
+}
+
+.swiper-slide-active {
+  width: 46vw !important;
+  //   transform: translateX(-20vw);
+}
+
+.swiper-wrapper {
+}
