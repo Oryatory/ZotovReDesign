@@ -25,12 +25,16 @@
 }
 
 .swiper-slide {
-  transition: width 0.6s;
-  left: -18%;
+  transition: all 0.6s;
+  left: -16%;
+  filter: blur(2px) brightness(60%);
 }
 
 .swiper-slide-active {
   width: 46vw !important;
+  filter: none;
+  transform: scale(1.04);
+  z-index: 5;
 }
 
 .buttons__container {
