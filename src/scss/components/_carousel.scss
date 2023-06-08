@@ -9,11 +9,24 @@
 
     img {
       width: 100%;
-      height: 100%;
+      height: 80%;
       object-fit: cover;
       transition: all 0.5s;
     }
   }
+}
+
+.swiper-slide-active > .slide__image > img,
+.swiper-slide-next > .slide__image > img,
+.swiper-slide-prev > .slide__image > img {
+  height: 100%;
+}
+.swiper-slide-next + .swiper-slide > .slide__image > img {
+  height: 90%;
+}
+
+.swiper-slide-prev-90 {
+  height: 90% !important;
 }
 
 .swiper {
@@ -38,7 +51,7 @@
 .swiper-slide-active {
   width: 46vw !important;
   filter: none;
-  transform: scale(1.04);
+  transform: scale(1.1);
   z-index: 5;
   overflow: visible;
 }

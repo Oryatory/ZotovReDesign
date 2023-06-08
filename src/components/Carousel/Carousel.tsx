@@ -79,42 +79,29 @@ const Carousel = () => {
       const slideImage = slide
         ?.querySelector(".slide__image")
         ?.querySelector("img") as HTMLElement;
-      slideImage ? (slideImage.style.height = "100%") : null;
+      slideImage ? slideImage.classList.remove("swiper-slide-prev-90") : null;
     });
   };
 
   const handleSlideChange = () => {
-    const nextSlide = document.querySelector(".swiper-slide-next");
     const prevSlide = document.querySelector(".swiper-slide-prev");
-
-    const nextSiblingImage = nextSlide?.nextElementSibling
-      ?.querySelector(".slide__image")
-      ?.querySelector("img") as HTMLElement;
-
-    const secondNextSiblingImage =
-      nextSlide?.nextElementSibling?.nextElementSibling
-        ?.querySelector(".slide__image")
-        ?.querySelector("img") as HTMLElement;
-
-    nextSiblingImage ? (nextSiblingImage.style.height = "90%") : null;
-
-    secondNextSiblingImage
-      ? (secondNextSiblingImage.style.height = "80%")
-      : null;
 
     const prevSiblingImage = prevSlide?.previousElementSibling
       ?.querySelector(".slide__image")
       ?.querySelector("img") as HTMLElement;
-    prevSiblingImage ? (prevSiblingImage.style.height = "90%") : null;
 
-    const secondPrevSiblingImage =
-      prevSlide?.previousElementSibling?.previousElementSibling
-        ?.querySelector(".slide__image")
-        ?.querySelector("img") as HTMLElement;
-
-    secondPrevSiblingImage
-      ? (secondPrevSiblingImage.style.height = "80%")
+    prevSiblingImage
+      ? prevSiblingImage.classList.add("swiper-slide-prev-90")
       : null;
+
+    // const prevSibling =
+    //   prevSlide?.previousElementSibling?.previousElementSibling;
+    // const prevPrevSibling = prevSibling
+    //   ?.querySelector(".slide__image")
+    //   ?.querySelector("img") as HTMLElement;
+    // prevPrevSibling
+    //   ? prevPrevSibling.classList.remove("swiper-slide-prev-90")
+    //   : null;
   };
 
   return (
