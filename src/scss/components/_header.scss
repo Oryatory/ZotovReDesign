@@ -4,13 +4,41 @@
   height: 100px;
   padding: 13px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 11;
   align-items: center;
 
   &__logo-wrapper {
     height: 100%;
+    position: absolute;
+    padding: 13px 0;
+    left: 50%;
+    transform: translateX(-50%);
+
     img {
       height: 100%;
     }
+  }
+
+  &__text {
+    color: #fff;
+    font-size: 16px;
+    text-align: right;
+
+    p:nth-child(2) {
+      font-size: 11px;
+    }
+  }
+
+  &__button {
+    color: #fff;
+    border: 1px solid #fff;
+    text-decoration: none;
+    padding: 9px 10px;
+    min-width: 180px;
+    font-size: 18px;
+    text-align: center;
   }
 }

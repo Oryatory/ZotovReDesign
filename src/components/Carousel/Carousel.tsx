@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
+import SwiperCore, { Navigation, Autoplay } from "swiper";
 import "swiper/swiper.min.css";
 import "swiper/css/navigation";
 import SlideTitle from "./SlideTitle";
@@ -71,7 +71,7 @@ const slides = [
 ];
 
 const Carousel = () => {
-  SwiperCore.use([Navigation]);
+  SwiperCore.use([Navigation, Autoplay]);
 
   return (
     <div className="swiper__container">
@@ -84,6 +84,7 @@ const Carousel = () => {
           nextEl: ".swiper-button-next",
         }}
         loop={true}
+        autoplay
       >
         {slides.map((slide) => {
           const { image, title, date } = slide;
