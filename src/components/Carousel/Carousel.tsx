@@ -73,6 +73,50 @@ const slides = [
 const Carousel = () => {
   SwiperCore.use([Navigation, Autoplay]);
 
+  const resetSlides = () => {
+    const allSlides = document.querySelectorAll(".swiper-slide");
+    allSlides.forEach((slide) => {
+      const slideImage = slide
+        ?.querySelector(".slide__image")
+        ?.querySelector("img") as HTMLElement;
+      slideImage ? (slideImage.style.height = "100%") : null;
+    });
+  };
+
+  const handleSlideChange = () => {
+    const nextSlide = document.querySelector(".swiper-slide-next");
+    const prevSlide = document.querySelector(".swiper-slide-prev");
+
+    const nextSiblingImage = nextSlide?.nextElementSibling
+      ?.querySelector(".slide__image")
+      ?.querySelector("img") as HTMLElement;
+
+    const secondNextSiblingImage =
+      nextSlide?.nextElementSibling?.nextElementSibling
+        ?.querySelector(".slide__image")
+        ?.querySelector("img") as HTMLElement;
+
+    nextSiblingImage ? (nextSiblingImage.style.height = "90%") : null;
+
+    secondNextSiblingImage
+      ? (secondNextSiblingImage.style.height = "80%")
+      : null;
+
+    const prevSiblingImage = prevSlide?.previousElementSibling
+      ?.querySelector(".slide__image")
+      ?.querySelector("img") as HTMLElement;
+    prevSiblingImage ? (prevSiblingImage.style.height = "90%") : null;
+
+    const secondPrevSiblingImage =
+      prevSlide?.previousElementSibling?.previousElementSibling
+        ?.querySelector(".slide__image")
+        ?.querySelector("img") as HTMLElement;
+
+    secondPrevSiblingImage
+      ? (secondPrevSiblingImage.style.height = "80%")
+      : null;
+  };
+
   return (
     <div className="swiper__container">
       <Swiper
@@ -84,6 +128,8 @@ const Carousel = () => {
           nextEl: ".swiper-button-next",
         }}
         loop={true}
+        onSlideChange={resetSlides}
+        onSlideChangeTransitionEnd={handleSlideChange}
         autoplay
       >
         {slides.map((slide) => {
