@@ -4,6 +4,9 @@ import "swiper/swiper.min.css";
 import "swiper/css/navigation";
 import SlideTitle from "./SlideTitle";
 import SlideDate from "./SlideDate";
+import { useEffect } from "react";
+import { handlePrevSibling } from "../../helpers/handlePrevSibling";
+import { handleSlideChange } from "../../helpers/handleSlideChange";
 
 const slides = [
   {
@@ -73,36 +76,9 @@ const slides = [
 const Carousel = () => {
   SwiperCore.use([Navigation, Autoplay]);
 
-  const resetSlides = () => {
-    const allSlides = document.querySelectorAll(".swiper-slide");
-    allSlides.forEach((slide) => {
-      const slideImage = slide
-        ?.querySelector(".slide__image")
-        ?.querySelector("img") as HTMLElement;
-      slideImage ? slideImage.classList.remove("swiper-slide-prev-90") : null;
-    });
-  };
-
-  const handleSlideChange = () => {
-    const prevSlide = document.querySelector(".swiper-slide-prev");
-
-    const prevSiblingImage = prevSlide?.previousElementSibling
-      ?.querySelector(".slide__image")
-      ?.querySelector("img") as HTMLElement;
-
-    prevSiblingImage
-      ? prevSiblingImage.classList.add("swiper-slide-prev-90")
-      : null;
-
-    // const prevSibling =
-    //   prevSlide?.previousElementSibling?.previousElementSibling;
-    // const prevPrevSibling = prevSibling
-    //   ?.querySelector(".slide__image")
-    //   ?.querySelector("img") as HTMLElement;
-    // prevPrevSibling
-    //   ? prevPrevSibling.classList.remove("swiper-slide-prev-90")
-    //   : null;
-  };
+  useEffect(() => {
+    handlePrevSibling();
+  }, []);
 
   return (
     <div className="swiper__container">
@@ -115,8 +91,7 @@ const Carousel = () => {
           nextEl: ".swiper-button-next",
         }}
         loop={true}
-        onSlideChange={resetSlides}
-        onSlideChangeTransitionEnd={handleSlideChange}
+        onAutoplay={handlePrevSibling}
         autoplay
       >
         {slides.map((slide) => {
@@ -146,8 +121,14 @@ const Carousel = () => {
         })}
       </Swiper>
       <div className="buttons__container">
-        <div className="swiper-button-prev">{/* <BsChevronLeft /> */}</div>
-        <div className="swiper-button-next">{/* <BsChevronRight /> */}</div>
+        <button
+          className="swiper-button-prev"
+          onClick={handleSlideChange}
+        ></button>
+        <button
+          className="swiper-button-next"
+          onClick={handleSlideChange}
+        ></button>
       </div>
     </div>
   );

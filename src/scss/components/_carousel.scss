@@ -70,10 +70,14 @@
 .swiper-button-next {
   color: #fff;
   right: 1rem;
+  background: transparent;
+  border: none;
 }
 .swiper-button-prev {
   color: #fff;
   left: 1rem;
+  background: transparent;
+  border: none;
 }
 
 .slide__title {
@@ -81,7 +85,7 @@
   top: -21%;
   white-space: nowrap;
   right: 50%;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
   text-align: center;
   transform: translateX(50%);
@@ -89,7 +93,7 @@
 .slide__date {
   position: absolute;
   bottom: -21%;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
   text-align: center;
   white-space: nowrap;
