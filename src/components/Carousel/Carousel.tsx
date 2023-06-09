@@ -26,7 +26,7 @@ const Carousel = () => {
     const paginationBullets = [
       ...document.querySelectorAll(".swiper-pagination-bullet"),
     ];
-    paginationBullets.forEach((bullet, index) => {
+    paginationBullets.forEach((bullet) => {
       const bulletElement = bullet as HTMLElement;
       if (
         bulletElement.classList.contains("swiper-pagination-bullet-active-main")
