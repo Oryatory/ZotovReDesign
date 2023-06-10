@@ -1,7 +1,6 @@
 .slide {
   &__image {
-    min-width: 46vw !important;
-    width: 100%;
+    width: 102%;
     height: 25rem;
     transition: all 0.6s;
     display: flex;
@@ -24,6 +23,11 @@
 .swiper-slide-prev > .slide__image > img {
   height: 100%;
 }
+
+.swiper-slide-active > .slide__image > img {
+  height: 115%;
+}
+
 .swiper-slide-next + .swiper-slide > .slide__image > img {
   height: 90%;
 }
@@ -48,7 +52,6 @@
   left: -16%;
   filter: blur(3px) brightness(60%);
   -webkit-filter: blur(3px) brightness(60%);
-  overflow: hidden;
   @media (max-width: 992px) {
     left: auto;
   }
@@ -57,7 +60,6 @@
 .swiper-slide-active {
   width: 46vw !important;
   filter: none;
-  transform: scale(1.1);
   z-index: 5;
   overflow: visible;
   @media (max-width: 992px) {
@@ -91,49 +93,56 @@
 
 .slide__title {
   position: absolute;
-  top: -21%;
+  top: -29%;
   white-space: nowrap;
   right: 50%;
   font-size: 22px;
   font-weight: 700;
   text-align: center;
-  transform: translateX(50%);
-}
-.slide__date {
-  position: absolute;
-  bottom: -21%;
-  font-size: 22px;
-  font-weight: 700;
-  text-align: center;
-  white-space: nowrap;
-  right: 50%;
   transform: translateX(50%);
 }
 
 .title__line {
   position: absolute;
-  top: -12%;
+  top: -20%;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.slide__date {
+  position: absolute;
+  bottom: -34%;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
   right: 50%;
   transform: translateX(50%);
 }
 
 .date__line {
   position: absolute;
-  bottom: -12%;
+  bottom: -25%;
   right: 50%;
   transform: translateX(50%);
 }
 
 .swiper-pagination {
-  bottom: -20% !important;
-  width: 100% !important;
+  bottom: -12.5% !important;
+  display: flex;
+  justify-content: center;
 }
 
 .swiper-pagination-bullet {
-  transform: scale(100%) !important;
   background-color: #000 !important;
+  // opacity: 1;
   border-radius: 0 !important;
   margin: 0 !important;
-  margin-right: 20px !important;
+  margin-right: 10px !important;
+  left: auto !important ;
   transition: 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  width: 160px !important;
 }

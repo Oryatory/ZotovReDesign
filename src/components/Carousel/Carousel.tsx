@@ -26,32 +26,43 @@ const Carousel = () => {
     const paginationBullets = [
       ...document.querySelectorAll(".swiper-pagination-bullet"),
     ];
+
+    const activeBullet = document.querySelector(
+      ".swiper-pagination-bullet-active"
+    ) as HTMLElement;
+    const activeBulletIndex = parseInt(activeBullet?.dataset?.index || "1");
+    // console.log(activeBullet?.dataset.index);
+
     paginationBullets.forEach((bullet) => {
       const bulletElement = bullet as HTMLElement;
-      if (
-        bulletElement.classList.contains("swiper-pagination-bullet-active-main")
-      ) {
-        bulletElement.style.width = "160px";
-      } else if (
-        bulletElement.classList.contains(
-          "swiper-pagination-bullet-active-next"
-        ) ||
-        bulletElement.classList.contains("swiper-pagination-bullet-active-prev")
-      ) {
+      const bulletElementIndex = parseInt(bulletElement.dataset.index || "1");
+
+      const indexDifference = Math.abs(activeBulletIndex - bulletElementIndex);
+      // const multiplyIndex = Math.abs(slides.length - indexDifference);
+      // console.log(multiplyIndex);
+
+      // bulletElement.style.width = `${multiplyIndex * 7.5}px`;
+
+      if (indexDifference < 2) {
         bulletElement.style.width = "60px";
-      } else if (
-        bulletElement.classList.contains(
-          "swiper-pagination-bullet-active-next-next"
-        ) ||
-        bulletElement.classList.contains(
-          "swiper-pagination-bullet-active-prev-prev"
-        )
-      ) {
+      } else if (indexDifference < 3) {
         bulletElement.style.width = "30px";
-      } else {
+      } else if (indexDifference < 4) {
         bulletElement.style.width = "20px";
+      } else if (indexDifference < 5) {
+        bulletElement.style.width = "15px";
+      } else if (indexDifference < 6) {
+        bulletElement.style.width = "12px";
+      } else {
+        bulletElement.style.width = "10px";
       }
     });
+  };
+
+  const paginationBulletRender = (index: number) => {
+    return `
+      <span class="swiper-pagination-bullet" data-index="${index + 1}"></span>
+    `;
   };
 
   return (
@@ -65,15 +76,17 @@ const Carousel = () => {
           nextEl: ".swiper-button-next",
         }}
         allowTouchMove={false}
-        loop={true}
+        loop
+        onSlideChangeTransitionStart={handleBullets}
+        loopedSlides={Math.ceil(slides.length / 2) - 2}
+        pagination={{
+          clickable: true,
+          renderBullet: paginationBulletRender,
+        }}
         onAutoplay={handlePrevSibling}
-        onSlideChange={handleBullets}
         autoplay
-        // pagination={{
-        //   dynamicBullets: true,
-        // }}
       >
-        {slides.concat(slides).map((slide, index) => {
+        {slides.map((slide, index) => {
           const { image, title, date } = slide;
           return (
             <SwiperSlide key={index}>
@@ -97,7 +110,6 @@ const Carousel = () => {
           onClick={handleSlideChange}
         ></button>
       </div>
-      {/* <div className="swiper-pagination"></div> */}
     </div>
   );
 };
