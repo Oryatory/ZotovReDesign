@@ -1,5 +1,5 @@
 import Post from "../Post/Post";
-import { postList } from "../../data";
+import { postList } from "../../data/posts";
 
 const PostList = () => {
   return (

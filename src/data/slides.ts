@@ -61,4 +61,18 @@ export const slides = [
     title: "Фильм-концерт. Круглый Бенд х Девушка с коробкой",
     date: "04.08",
   },
+  {
+    image:
+      "https://centrezotov.ru/wp-content/uploads/2023/05/bespredmetnaya_poeziya_varvary_stepanovoj-884x650.jpg",
+
+    title: "Лекция. От великого немого к звуковому",
+    date: "13.06",
+  },
+  {
+    image:
+      "https://centrezotov.ru/wp-content/uploads/2023/06/rasteniya-884x650.jpg",
+
+    title: "Лекция Зотов Х Beat «Тайная жизнь домашних растений»",
+    date: "18.06",
+  },
 ];
